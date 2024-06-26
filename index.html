@@ -1,18 +1,226 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+        rel="stylesheet" />
+    <link rel="stylesheet" href="global.css" />
     <title>Webbee Test Page</title>
 </head>
 
 <body>
+    <div class="page-container">
+        <header class="page-header">
+            <div class="page-header__top">
+                <div class="left-container">
+                    <div class="breadcrumbs">
+                        <img src="assets/icons/back-icon.svg" />
+                        <h1>
+                            <span class="breadcrumbs__root">User pages</span>
+                            <span class="breadcrumbs__separator">-</span>
+                            Profile
+                        </h1>
+                    </div>
+                </div>
+                <div class="right-container">
+                    <ul class="extra-nav">
+                        <li class="extra-nav__item">
+                            <a href="" class="extra-nav__link">
+                                <img class="extra-nav__link-icon" src="assets/icons/statistics-icon.svg" />
+                                <p class="extra-nav__link-text">Statistics</p>
+                            </a>
+                        </li>
+                        <li class="extra-nav__item">
+                            <a href="" class="extra-nav__link">
+                                <img class="extra-nav__link-icon" src="assets/icons/invoices-icon.svg" />
+                                <p class="extra-nav__link-text">Invoices</p>
+                            </a>
+                        </li>
+                        <li class="extra-nav__item">
+                            <a href="" class="extra-nav__link">
+                                <img class="extra-nav__link-icon" src="assets/icons/schedule-icon.svg" />
+                                <p class="extra-nav__link-text">Schedule</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="page-header__bottom">
+                <nav class="header-nav">
+                    <div class="left-container">
+                        <ul class="header-nav__list">
+                            <li class="header-nav__item">
+                                <a class="header-nav__link header-nav__link_active" href="#">
+                                    <img class="header-nav__icon" src="assets/icons/burger-menu-icon.svg">
+                                    <span class="header-nav__label">Activity</span>
+                                </a>
+                            </li>
+                            <li class="header-nav__item">
+                                <a class="header-nav__link" href="/map">
+                                    <img class="header-nav__icon" src="assets/icons/location-icon.svg">
+                                    <span class="header-nav__label">Map</span></a>
+                            </li>
+                            <li class="header-nav__item">
+                                <a class="header-nav__link" href="/timer">
+                                    <img class="header-nav__icon" src="assets/icons/time-icon.svg">
+                                    <span class="header-nav__label">Timer</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="right-container">
+                        <ul class="header-nav__list">
+                            <li class="header-nav__item"><a href="#" class="header-nav__link"><img
+                                        src="assets/icons/notes-icon.svg" alt="" class="header-nav__icon"><span
+                                        class="header-nav__label">Notes</span></a></li>
+                            <li class="header-nav__item"><a href="#" class="header-nav__link"><img
+                                        src="assets/icons/people-icon.svg" alt="" class="header-nav__icon"><span
+                                        class="header-nav__label">Friends</span></a></li>
+                            <li class="header-nav__item"><a href="#" class="header-nav__link"><img
+                                        src="assets/icons/photos-icon.svg" alt="" class="header-nav__icon"><span
+                                        class="header-nav__label">Photos</span></a></li>
+                            <li class="header-nav__item settings">
+                                <img class="header-nav__icon" src="assets/icons/settings-icon.svg">
+                                <img class="header-nav__menu-arrow" src="/assets/icons/menu-arrow-icon.svg">
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <div class="page-container">
+        <div class="grid">
+            <main class="posts">
+                <article class="post post_active">
+                    <img src="assets/himalayan-sunset.webp">
+                    <div class="comments">
+                        <div class="comment">
+                            <img src="assets/icons/quote-icon.svg" alt="Beautiful sunset">
+                            <div class="comment__header">
+                                <p><a class="comment__author" href="#">James Anderson</a> commented:</p>
+                            </div>
+                            <div class="comment__body">
+                                <p class="comment__content">Don’t sit and wait. Get out there, feel life. Touch the
+                                    sun, and immerse in the sea. Keep love in your heart. A life without it is like
+                                    a sunless garden when the flowers are dead. Because summer is passion, memories,
+                                    light breeze, the sun that appears on the skin and caresses the face.
+                                </p>
+                                <p class="comment__data">– Jason, <time class="comment__time" datetime="10:30">10:30
+                                        am</time>
+                                </p>
+                            </div>
+                            <footer class="post__footer">
+                                <div class="post__views">
+                                    <div class="footer-item">
+                                        <img class="post__footer-item-logo" src="assets/icons/views-icon.svg">
+                                        <span class="post__footer-data" aria-label="views">432</span>
+                                    </div>
+                                    <div class="footer-item">
+                                        <img class="post__footer-item-logo" src="assets/icons/quote-icon.svg">
+                                        <span class="post__footer-data" aria-label="comments">47</span>
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </article>
+                <article class="post">
+                    <header class="post__header">
+                        <div class="left-container">
+                            <p class="post__header-text">Sunset sunset sunset</p>
+                        </div>
+                        <div class="right-container">
+                            <img src="assets/icons/time-icon.svg">
+                            <time datetime="PT53M">53 minutes ago</time>
+                        </div>
+                    </header>
+                </article>
+                <article class="post">
+                    <header class="post__header">
+                        <div class="left-container">
+                            <p class="post__header-text">Morning in Siberia</p>
+                        </div>
+                        <div class="right-container">
+                            <img src="assets/icons/time-icon.svg">
+                            <time datetime="PT56M">56 minutes ago</time>
+                        </div>
+                    </header>
+                </article>
+            </main>
+
+            <aside class="profile-sidebar">
+                <div class="user-card">
+                    <div class="user-card__photo-container">
+                        <img class="user-card__photo" src="assets/profile-photo.webp" alt="Hanna Dorman">
+                    </div>
+                    <p class="user-card__user-name">Hanna Dorman</p>
+                    <p class="user-card__user-profession">UX/UI designer</p>
+                    <ul class="social-media">
+                        <a href="https://www.telegram.org"><img src="assets/icons/telegram.svg"></a>
+                        <a href="https://www.hh.ru"><img src="assets/icons/hh.svg"></a>
+                        <a href="https://www.twitter.com"><img src="assets/icons/twitter.svg"></a>
+                    </ul>
+                </div>
+                <div class="sidebar-card">
+                    <div class="sidebar-card__header">
+                        Navigation
+                    </div>
+                    <div class="sidebar-card__content">
+                        <nav class="sidebar-card__nav">
+                            <ul class="sidebar-card__list">
+                                <li class="sidebar-card__item">
+                                    <img src="assets/icons/person-icon.svg"><a href="#" class="sidebar-card__link">My
+                                        profile</a>
+                                    <div class="badge"></div>
+                                </li>
+                                <li class="sidebar-card__item">
+                                    <img src="assets/icons/balance-icon.svg"><a href="#"
+                                        class="sidebar-card__link">Balance</a>
+                                    <div class="badge">$ 1,430</div>
+                                </li>
+                                <li class="sidebar-card__item">
+                                    <img src="assets/icons/connections-icon.svg"><a href="#"
+                                        class="sidebar-card__link">Connections</a>
+                                    <div class="badge">29</div>
+                                </li>
+                                <li class="sidebar-card__item">
+                                    <img src="assets/icons/people-icon.svg"><a href="#"
+                                        class="sidebar-card__link">Friends</a>
+                                    <div class="badge"></div>
+                                </li>
+                                <li class="sidebar-card__item">
+                                    <img src="assets/icons/events-icon.svg"><a href="#"
+                                        class="sidebar-card__link">Events</a>
+                                    <div class="badge">45</div>
+                                </li>
+                                <li class="sidebar-card__item">
+                                    <img src="assets/icons/settings-icon.svg"><a href="#"
+                                        class="sidebar-card__link">Account settings</a>
+                                    <div class="badge"></div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="sidebar-card">
+                    <div class="sidebar-card__header">
+                        Share your thoughts
+                    </div>
+                    <div class="sidebar-card__content">
+                        <textarea class="sidebar-card__textarea" placeholder="Enter your message..."
+                            rows="4"></textarea>
+                        <button class="sidebar-card__button">Save</button>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
     <script type="module" src="script.js"></script>
 </body>
 
