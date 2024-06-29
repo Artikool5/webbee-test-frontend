@@ -1,0 +1,143 @@
+:root {
+    --blue: #5095ec;
+    --red: #e33939;
+    --green: #47b091;
+    --black: #505050;
+    --second-tx: #8f8f8f;
+    --gray: #d3d8de;
+    --bg: #f1f1f1;
+    --bg2: #fafafa;
+    --white: #ffffff;
+
+    background-color: var(--bg);
+    color: var(--black);
+    font-family: "Roboto", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+h1 {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+
+.page-container {
+    max-width: 1440px;
+    margin-inline: auto;
+}
+
+.page-header {
+    box-shadow: 0 1px 1px #0000001A;
+}
+
+.page-header__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-inline: 32px;
+
+    background-color: var(--white);
+}
+
+.breadcrumbs {
+    display: flex;
+    gap: 8px;
+}
+
+.breadcrumbs__root {
+    font-weight: 500;
+}
+
+.extra-nav {
+    display: flex;
+    gap: 32px;
+}
+
+.extra-nav__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    padding-block: 8px;
+    height: 100%;
+
+    transition: background-color 300ms ease-in-out;
+
+    &:hover {
+        background-color: var(--bg);
+    }
+}
+
+.page-header__bottom {
+    background-color: var(--bg2);
+}
+
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+
+    padding-inline: 32px;
+}
+
+.header-nav__link,
+.header-nav__item.settings {
+    display: flex;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding-inline: 16px;
+    padding-block: 10px;
+
+    transition: background-color 300ms ease-in-out;
+
+    &:hover {
+        background-color: var(--bg);
+    }
+}
+
+.header-nav__link_active {
+    background-color: var(--bg);
+}
+
+.header-nav__item.settings {
+    padding-inline: 12px;
+    gap: 16px;
+
+    cursor: pointer;
+
+
+    .header-nav__menu-arrow {
+        width: 10px;
+        transition: transform 300ms ease-in-out;
+    }
+
+    &:hover .header-nav__menu-arrow {
+        transform: rotate(180deg);
+    }
+}
+
+
+
+.header-nav__list {
+    display: flex;
+}
