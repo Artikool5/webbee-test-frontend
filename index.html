@@ -205,11 +205,11 @@
                         <li><a href="https://www.twitter.com"><img src="assets/icons/twitter.svg"></a></li>
                     </ul>
                 </div>
-                <div class="sidebar-card">
+                <div class="sidebar-card open">
                     <div class="sidebar-card__header">
                         <h3 class="sidebar-card__title">Navigation</h3>
                         <div class="icon-wrapper icon-wrapper_sm">
-                            <img src="/assets/icons/menu-arrow-icon.svg">
+                            <img class="menu-arrow-icon" src="/assets/icons/menu-arrow-icon.svg">
                         </div>
                     </div>
                     <div class="sidebar-card__content">
@@ -217,61 +217,77 @@
                             <ul class="sidebar-card__list">
                                 <li class="sidebar-card__item">
                                     <a href="#" class="sidebar-card__link">
-                                        <div class="icon-wrapper"><img src="assets/icons/person-icon.svg"></div>
-                                        My profile
+                                        <div class="sidebar-card__link-text">
+                                            <div class="icon-wrapper"><img src="assets/icons/person-icon.svg"></div>
+                                            <span class="sidebar-card__link-title">My profile</span>
+                                        </div>
+                                        <div class="badge"></div>
                                     </a>
-                                    <div class="badge"></div>
                                 </li>
                                 <li class="sidebar-card__item">
                                     <a href="#" class="sidebar-card__link">
-                                        <div class="icon-wrapper"><img src="assets/icons/balance-icon.svg"></div>
-                                        Balance
+                                        <div class="sidebar-card__link-text">
+                                            <div class="icon-wrapper"><img src="assets/icons/balance-icon.svg"></div>
+                                            <span class="sidebar-card__link-title">Balance</span>
+                                        </div>
+                                        <div class="badge badge_text">$ 1,430</div>
                                     </a>
-                                    <div class="badge">$ 1,430</div>
                                 </li>
                                 <li class="sidebar-card__item">
                                     <a href="#" class="sidebar-card__link">
-                                        <div class="icon-wrapper"><img src="assets/icons/connections-icon.svg"></div>
-                                        Connections
+                                        <div class="sidebar-card__link-text">
+                                            <div class="icon-wrapper"><img src="assets/icons/connections-icon.svg">
+                                            </div>
+                                            <span class="sidebar-card__link-title">Connections</span>
+                                        </div>
+                                        <div class="badge badge_red">29</div>
                                     </a>
-                                    <div class="badge">29</div>
                                 </li>
                                 <li class="sidebar-card__item">
                                     <a href="#" class="sidebar-card__link">
-                                        <div class="icon-wrapper"><img src="assets/icons/people-icon.svg"></div>
-                                        Friends
+                                        <div class="sidebar-card__link-text">
+                                            <div class="icon-wrapper"><img src="assets/icons/people-icon.svg"></div>
+                                            <span class="sidebar-card__link-title">Friends</span>
+                                        </div>
+                                        <div class="badge"></div>
                                     </a>
-                                    <div class="badge"></div>
+                                </li>
+                                <div class="sidebar-card__separetor"></div>
+                                <li class="sidebar-card__item">
+                                    <a href="#" class="sidebar-card__link">
+                                        <div class="sidebar-card__link-text">
+                                            <div class="icon-wrapper"><img src="assets/icons/events-icon.svg"></div>
+                                            <span class="sidebar-card__link-title">Events</span>
+                                        </div>
+                                        <div class="badge badge_green">45</div>
+                                    </a>
                                 </li>
                                 <li class="sidebar-card__item">
                                     <a href="#" class="sidebar-card__link">
-                                        <div class="icon-wrapper"><img src="assets/icons/events-icon.svg"></div>
-                                        Events
+                                        <div class="sidebar-card__link-text">
+                                            <div class="icon-wrapper"><img src="assets/icons/settings-icon.svg"></div>
+                                            <span class="sidebar-card__link-title">Account settings</span>
+                                        </div>
+                                        <div class="badge"></div>
                                     </a>
-                                    <div class="badge">45</div>
-                                </li>
-                                <li class="sidebar-card__item">
-                                    <a href="#" class="sidebar-card__link">
-                                        <div class="icon-wrapper"><img src="assets/icons/settings-icon.svg"></div>
-                                        Account settings
-                                    </a>
-                                    <div class="badge"></div>
                                 </li>
                             </ul>
                         </nav>
                     </div>
                 </div>
-                <div class="sidebar-card">
+                <div class="sidebar-card open">
                     <div class="sidebar-card__header">
                         <h3 class="sidebar-card__title">Share your thoughts</h3>
                         <div class="icon-wrapper icon-wrapper_sm">
-                            <img src="/assets/icons/menu-arrow-icon.svg">
+                            <img class="menu-arrow-icon" src="/assets/icons/menu-arrow-icon.svg">
                         </div>
                     </div>
                     <div class="sidebar-card__content">
-                        <textarea class="sidebar-card__textarea" placeholder="Enter your message..."
-                            rows="4"></textarea>
-                        <button class="sidebar-card__button">Save</button>
+                        <div class="sidebar-card__content-container">
+                            <textarea class="sidebar-card__textarea" placeholder="Enter your message..."
+                                rows="4"></textarea>
+                            <button class="sidebar-card__button">Save</button>
+                        </div>
                     </div>
                 </div>
             </aside>
