@@ -43,6 +43,20 @@ h1 {
     margin-inline: auto;
 }
 
+
+.icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+}
+
+.icon-wrapper_sm {
+    width: 20px;
+    height: 20px;
+}
+
 .page-header {
     box-shadow: 0 1px 1px #0000001A;
 }
@@ -87,6 +101,10 @@ h1 {
     }
 }
 
+.extra-nav__link-text {
+    line-height: 1;
+}
+
 .page-header__bottom {
     background-color: var(--bg2);
 }
@@ -120,8 +138,8 @@ h1 {
 }
 
 .header-nav__item.settings {
-    padding-inline: 12px;
-    gap: 16px;
+    padding-inline: 10px;
+    gap: 8px;
 
     cursor: pointer;
 
