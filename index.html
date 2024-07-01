@@ -8,8 +8,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="global.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/profile.css" />
+    <link rel="stylesheet" href="styles/map.css" />
+    <link rel="stylesheet" href="styles/timer.css" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script async src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
     <script defer type="module" src="script.js"></script>
     <title>Webbee Test Page</title>
 </head>
@@ -31,21 +39,21 @@
                 <div class="right-container">
                     <ul class="extra-nav">
                         <li class="extra-nav__item">
-                            <a href="" class="extra-nav__link">
+                            <a href="#" class="extra-nav__link">
                                 <div class="icon-wrapper"><img class="extra-nav__link-icon"
                                         src="assets/icons/statistics-icon.svg" /></div>
                                 <p class="extra-nav__link-text">Statistics</p>
                             </a>
                         </li>
                         <li class="extra-nav__item">
-                            <a href="" class="extra-nav__link">
+                            <a href="#" class="extra-nav__link">
                                 <div class="icon-wrapper"><img class="extra-nav__link-icon"
                                         src="assets/icons/invoices-icon.svg" /></div>
                                 <p class="extra-nav__link-text">Invoices</p>
                             </a>
                         </li>
                         <li class="extra-nav__item">
-                            <a href="" class="extra-nav__link">
+                            <a href="#" class="extra-nav__link">
                                 <div class="icon-wrapper"><img class="extra-nav__link-icon"
                                         src="assets/icons/schedule-icon.svg" /></div>
                                 <p class="extra-nav__link-text">Schedule</p>
@@ -59,21 +67,21 @@
                     <div class="left-container">
                         <ul class="header-nav__list">
                             <li class="header-nav__item">
-                                <a class="header-nav__link header-nav__link_active" href="#">
+                                <a class="header-nav__link header-nav__link_active" href="#" data-page="profile">
                                     <div class="icon-wrapper icon-wrapper_sm"><img class="header-nav__icon"
                                             src="assets/icons/burger-menu-icon.svg"></div>
                                     <span class="header-nav__label">Activity</span>
                                 </a>
                             </li>
                             <li class="header-nav__item">
-                                <a class="header-nav__link" href="/map">
+                                <a class="header-nav__link" href="#" data-page="map">
                                     <div class="icon-wrapper icon-wrapper_sm"><img class="header-nav__icon"
                                             src="assets/icons/location-icon.svg"></div>
                                     <span class="header-nav__label">Map</span>
                                 </a>
                             </li>
                             <li class="header-nav__item">
-                                <a class="header-nav__link" href="/timer">
+                                <a class="header-nav__link" href="#" data-page="timer">
                                     <div class="icon-wrapper icon-wrapper_sm"><img class="header-nav__icon"
                                             src="assets/icons/time-icon.svg"></div>
                                     <span class="header-nav__label">Timer</span>
@@ -121,179 +129,7 @@
     </div>
 
     <div class="page-container">
-        <div class="grid">
-            <main class="posts">
-                <article class="post post_active">
-                    <img src="assets/himalayan-sunset.webp" alt="Beautiful sunset">
-                    <div class="comments">
-                        <div class="comment">
-                            <div class="comment__header">
-                                <div class="icon-wrapper"><img src="assets/icons/quote-icon.svg"></div>
-                                <p><a class="comment__author" href="#">James Anderson</a> commented:</p>
-                            </div>
-                            <div class="comment__body">
-                                <p class="comment__content">Don’t sit and wait. Get out there, feel life. Touch the
-                                    sun, and immerse in the sea. Keep love in your heart. A life without it is like
-                                    a sunless garden when the flowers are dead. Because summer is passion, memories,
-                                    light breeze, the sun that appears on the skin and caresses the face.
-                                </p>
-                                <p class="comment__data">– Jason, <time class="comment__time" datetime="10:30">10:30
-                                        am</time>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <footer class="post__footer">
-                        <ul class="post__stats">
-                            <li class="post__stat">
-                                <div class="icon-wrapper"><img class="post__stat-logo"
-                                        src="assets/icons/views-icon.svg"></div>
-                                <span class="post__stat-data" aria-label="views">432</span>
-                            </li>
-                            <li class="post__stat">
-                                <div class="icon-wrapper"><img class="post__stat-logo"
-                                        src="assets/icons/quote-icon.svg"></div>
-                                <span class="post__stat-data" aria-label="comments">47</span>
-                            </li>
-                        </ul>
-                    </footer>
-                </article>
-                <article class="post">
-                    <header class="post__header">
-                        <div class="left-container">
-                            <p class="post__header-text">Sunset sunset sunset</p>
-                        </div>
-                        <div class="right-container">
-                            <div class="header__stats">
-                                <div class="icon-wrapper"><img src="assets/icons/time-icon.svg"></div>
-                                <time datetime="PT53M">53 minutes ago</time>
-                            </div>
-                            <div class="icon-wrapper">
-                                <img class="menu-arrow-icon" src="/assets/icons/menu-arrow-icon.svg">
-                            </div>
-                        </div>
-                    </header>
-                </article>
-                <article class="post">
-                    <header class="post__header">
-                        <div class="left-container">
-                            <p class="post__header-text">Morning in Siberia</p>
-                        </div>
-                        <div class="right-container">
-                            <div class="header__stats">
-                                <div class="icon-wrapper"><img src="assets/icons/time-icon.svg"></div>
-                                <time datetime="PT56M">56 minutes ago</time>
-                            </div>
-                            <div class="icon-wrapper">
-                                <img class="menu-arrow-icon" src="/assets/icons/menu-arrow-icon.svg">
-                            </div>
-                        </div>
-                    </header>
-                </article>
-            </main>
-
-            <aside class="profile-sidebar">
-                <div class="sidebar-card sidebar-card_user">
-                    <div class="sidebar-card__photo-container">
-                        <img class="sidebar-card__photo" src="assets/profile-photo.webp" alt="Hanna Dorman">
-                    </div>
-                    <div class="sidebar-card__user-title">
-                        <h3 class="sidebar-card__user-name">Hanna Dorman</h3>
-                        <p class="sidebar-card__user-profession">UX/UI designer</p>
-                    </div>
-                    <ul class="user-social-media">
-                        <li><a href="https://www.telegram.org"><img src="assets/icons/telegram.svg"></a></li>
-                        <li><a href="https://www.hh.ru"><img src="assets/icons/hh.svg"></a></li>
-                        <li><a href="https://www.twitter.com"><img src="assets/icons/twitter.svg"></a></li>
-                    </ul>
-                </div>
-                <div class="sidebar-card open">
-                    <div class="sidebar-card__header">
-                        <h3 class="sidebar-card__title">Navigation</h3>
-                        <div class="icon-wrapper icon-wrapper_sm">
-                            <img class="menu-arrow-icon" src="/assets/icons/menu-arrow-icon.svg">
-                        </div>
-                    </div>
-                    <div class="sidebar-card__content">
-                        <nav class="sidebar-card__nav">
-                            <ul class="sidebar-card__list">
-                                <li class="sidebar-card__item">
-                                    <a href="#" class="sidebar-card__link">
-                                        <div class="sidebar-card__link-text">
-                                            <div class="icon-wrapper"><img src="assets/icons/person-icon.svg"></div>
-                                            <span class="sidebar-card__link-title">My profile</span>
-                                        </div>
-                                        <div class="badge"></div>
-                                    </a>
-                                </li>
-                                <li class="sidebar-card__item">
-                                    <a href="#" class="sidebar-card__link">
-                                        <div class="sidebar-card__link-text">
-                                            <div class="icon-wrapper"><img src="assets/icons/balance-icon.svg"></div>
-                                            <span class="sidebar-card__link-title">Balance</span>
-                                        </div>
-                                        <div class="badge badge_text">$ 1,430</div>
-                                    </a>
-                                </li>
-                                <li class="sidebar-card__item">
-                                    <a href="#" class="sidebar-card__link">
-                                        <div class="sidebar-card__link-text">
-                                            <div class="icon-wrapper"><img src="assets/icons/connections-icon.svg">
-                                            </div>
-                                            <span class="sidebar-card__link-title">Connections</span>
-                                        </div>
-                                        <div class="badge badge_red">29</div>
-                                    </a>
-                                </li>
-                                <li class="sidebar-card__item">
-                                    <a href="#" class="sidebar-card__link">
-                                        <div class="sidebar-card__link-text">
-                                            <div class="icon-wrapper"><img src="assets/icons/people-icon.svg"></div>
-                                            <span class="sidebar-card__link-title">Friends</span>
-                                        </div>
-                                        <div class="badge"></div>
-                                    </a>
-                                </li>
-                                <div class="sidebar-card__separetor"></div>
-                                <li class="sidebar-card__item">
-                                    <a href="#" class="sidebar-card__link">
-                                        <div class="sidebar-card__link-text">
-                                            <div class="icon-wrapper"><img src="assets/icons/events-icon.svg"></div>
-                                            <span class="sidebar-card__link-title">Events</span>
-                                        </div>
-                                        <div class="badge badge_green">45</div>
-                                    </a>
-                                </li>
-                                <li class="sidebar-card__item">
-                                    <a href="#" class="sidebar-card__link">
-                                        <div class="sidebar-card__link-text">
-                                            <div class="icon-wrapper"><img src="assets/icons/settings-icon.svg"></div>
-                                            <span class="sidebar-card__link-title">Account settings</span>
-                                        </div>
-                                        <div class="badge"></div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <div class="sidebar-card open">
-                    <div class="sidebar-card__header">
-                        <h3 class="sidebar-card__title">Share your thoughts</h3>
-                        <div class="icon-wrapper icon-wrapper_sm">
-                            <img class="menu-arrow-icon" src="/assets/icons/menu-arrow-icon.svg">
-                        </div>
-                    </div>
-                    <div class="sidebar-card__content">
-                        <div class="sidebar-card__content-container">
-                            <textarea class="sidebar-card__textarea" placeholder="Enter your message..."
-                                rows="4"></textarea>
-                            <button class="sidebar-card__button">Save</button>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-        </div>
+        <div id="app"></div>
     </div>
 </body>
 
