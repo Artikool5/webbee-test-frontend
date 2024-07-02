@@ -18,14 +18,6 @@ navLinks.forEach((link) => {
   link.addEventListener("click", navigate);
 });
 
-// В рамках тестового задания отключаем поведение ненужных для навигации ссылок
-function removeLinkDefault() {
-  const links = document.querySelectorAll("a:not(.header-nav__link)");
-  navLinks.forEach((link) => {
-    link.addEventListener("click", (e) => e.preventDefault());
-  });
-}
-
 window.addEventListener("popstate", () => {
   const pageName = window.location.hash.slice(1) || "profile";
   renderPage(pageName);
@@ -36,16 +28,26 @@ renderPage(initialPage);
 
 // Page scripts
 
-function profilePageScript() {
+function profilePageScript(needCleanup) {
+  function cleanup(cardHeader) {
+    cardHeader.removeEventListener("click", () => {
+      card.classList.toggle("open");
+    });
+  }
+
   const sidebarCards = document.querySelectorAll(
     ".sidebar-card:not(.sidebar-card_user)"
   );
 
   sidebarCards.forEach((card) => {
     const cardHeader = card.querySelector(".sidebar-card__header");
-    cardHeader.addEventListener("click", () => {
-      card.classList.toggle("open");
-    });
+    if (needCleanup) {
+      cleanup(cardHeader);
+    } else {
+      cardHeader.addEventListener("click", () => {
+        card.classList.toggle("open");
+      });
+    }
   });
 }
 
@@ -92,6 +94,21 @@ function mapPageScript() {
   if (!isMapVisited) isMapVisited = true;
 }
 
+// В рамках тестового задания отключаем поведение ненужных для навигации ссылок
+function removeLinkDefault(needCleanup) {
+  const links = document.querySelectorAll("a:not(.header-nav__link)");
+
+  if (needCleanup) {
+    links.forEach((link) => {
+      link.removeEventListener("click", (e) => e.preventDefault());
+    });
+  } else {
+    links.forEach((link) => {
+      link.addEventListener("click", (e) => e.preventDefault());
+    });
+  }
+}
+
 // Render logic
 
 function renderPage(pageName) {
@@ -102,6 +119,9 @@ function renderPage(pageName) {
   //Pre-render "hook"
   if (currentPage) {
     pages[currentPage] = appElement.innerHTML;
+    removeLinkDefault(true);
+
+    if (currentPage === "profile") profilePageScript(true);
   }
 
   appElement.innerHTML = pages[pageName] || "<h1>404 Not Found</h1>";
@@ -110,7 +130,7 @@ function renderPage(pageName) {
   //Post-render scripts
   switch (pageName) {
     case "profile":
-      profilePageScript();
+      profilePageScript(false);
       break;
     case "map":
       mapPageScript();
@@ -120,7 +140,7 @@ function renderPage(pageName) {
       break;
   }
 
-  removeLinkDefault();
+  removeLinkDefault(false);
 }
 
 function navigate(event) {
