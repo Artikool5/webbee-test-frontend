@@ -39,8 +39,36 @@ window.addEventListener("popstate", () => {
   renderPage(pageName);
 });
 
-const initialPage = window.location.hash.slice(1) || "profile";
-renderPage(initialPage);
+// Timer logic
+
+let isTimerVisible = false;
+let seconds = 0;
+let minutes = 0;
+let hours = 0;
+setInterval(updateTimer, 1000);
+
+function updateTimer() {
+  seconds++;
+  if (seconds >= 60) {
+    seconds = 0;
+    minutes++;
+    if (minutes >= 60) {
+      minutes = 0;
+      hours++;
+    }
+  }
+
+  if (isTimerVisible) updateDisplay();
+}
+
+function updateDisplay() {
+  const display = document.getElementById("timer");
+  display.textContent = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+}
+
+function pad(number) {
+  return number < 10 ? "0" + number : number;
+}
 
 // Page scripts
 
@@ -110,6 +138,10 @@ function mapPageScript() {
   if (!isMapVisited) isMapVisited = true;
 }
 
+function timerPageScript() {
+  isTimerVisible = !isTimerVisible;
+}
+
 // В рамках тестового задания отключаем поведение ненужных для навигации ссылок
 function removeLinkDefault(needCleanup) {
   const links = document.querySelectorAll("a:not(.header-nav__link)");
@@ -138,6 +170,7 @@ function renderPage(pageName, pageLink) {
     removeLinkDefault(true);
 
     if (currentPage === "profile") profilePageScript(true);
+    if (currentPage === "timer") timerPageScript();
   }
 
   appElement.innerHTML = pages[pageName];
@@ -152,7 +185,9 @@ function renderPage(pageName, pageLink) {
     case "map":
       mapPageScript();
       break;
-
+    case "timer":
+      timerPageScript();
+      break;
     default:
       break;
   }
@@ -168,3 +203,6 @@ function navigate(event) {
   history.pushState(null, "", `#${pageName}`);
   renderPage(pageName, event.currentTarget);
 }
+
+const initialPage = window.location.hash.slice(1) || "profile";
+renderPage(initialPage);
