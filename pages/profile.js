@@ -46,7 +46,7 @@ const ProfilePage = `<div class="grid">
                                 <time datetime="PT53M">53 minutes ago</time>
                             </div>
                             <div class="icon-wrapper">
-                                <img class="menu-arrow-icon" src="/assets/icons/menu-arrow-icon.svg">
+                                <img class="menu-arrow-icon" src="assets/icons/menu-arrow-icon.svg">
                             </div>
                         </div>
                     </header>
@@ -62,7 +62,7 @@ const ProfilePage = `<div class="grid">
                                 <time datetime="PT56M">56 minutes ago</time>
                             </div>
                             <div class="icon-wrapper">
-                                <img class="menu-arrow-icon" src="/assets/icons/menu-arrow-icon.svg">
+                                <img class="menu-arrow-icon" src="assets/icons/menu-arrow-icon.svg">
                             </div>
                         </div>
                     </header>
@@ -88,7 +88,7 @@ const ProfilePage = `<div class="grid">
                     <div class="sidebar-card__header">
                         <h3 class="sidebar-card__title">Navigation</h3>
                         <div class="icon-wrapper icon-wrapper_sm">
-                            <img class="menu-arrow-icon" src="/assets/icons/menu-arrow-icon.svg">
+                            <img class="menu-arrow-icon" src="assets/icons/menu-arrow-icon.svg">
                         </div>
                     </div>
                     <div class="sidebar-card__content">
@@ -158,7 +158,7 @@ const ProfilePage = `<div class="grid">
                     <div class="sidebar-card__header">
                         <h3 class="sidebar-card__title">Share your thoughts</h3>
                         <div class="icon-wrapper icon-wrapper_sm">
-                            <img class="menu-arrow-icon" src="/assets/icons/menu-arrow-icon.svg">
+                            <img class="menu-arrow-icon" src="assets/icons/menu-arrow-icon.svg">
                         </div>
                     </div>
                     <div class="sidebar-card__content">

@@ -121,7 +121,6 @@ function mapPageScript() {
         },
         (error) => {
           alert("Geolocation failed. Default location will be used.");
-          console.log("error", error);
           // London
           initMap(51.505, -0.09);
         }
