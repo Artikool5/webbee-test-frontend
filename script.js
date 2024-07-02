@@ -8,15 +8,31 @@ const pages = {
   profile: ProfilePage,
   map: MapPage,
   timer: TimerPage,
+  404: "<h1>404 Not Found</h1>",
 };
 
 let currentPage = null;
 let isMapVisited = false;
 
-const navLinks = document.querySelectorAll(".header-nav__link");
-navLinks.forEach((link) => {
-  link.addEventListener("click", navigate);
-});
+function setCurrentPageActiveLink(pageName, pageLink) {
+  if (!currentPage) {
+    const navLinks = document.querySelectorAll(".header-nav__link");
+    navLinks.forEach((link) => {
+      link.addEventListener("click", navigate);
+
+      const dataPage = link.getAttribute("data-page");
+      if (dataPage === pageName) {
+        link.classList.add("header-nav__link_active");
+      }
+    });
+  }
+
+  if (currentPage) {
+    const oldActiveLink = document.querySelector(".header-nav__link_active");
+    oldActiveLink.classList.remove("header-nav__link_active");
+    pageLink.classList.add("header-nav__link_active");
+  }
+}
 
 window.addEventListener("popstate", () => {
   const pageName = window.location.hash.slice(1) || "profile";
@@ -111,7 +127,7 @@ function removeLinkDefault(needCleanup) {
 
 // Render logic
 
-function renderPage(pageName) {
+function renderPage(pageName, pageLink) {
   if (pageName === currentPage) return;
 
   const appElement = document.getElementById("app");
@@ -124,7 +140,8 @@ function renderPage(pageName) {
     if (currentPage === "profile") profilePageScript(true);
   }
 
-  appElement.innerHTML = pages[pageName] || "<h1>404 Not Found</h1>";
+  appElement.innerHTML = pages[pageName];
+  setCurrentPageActiveLink(pageName, pageLink);
   currentPage = pageName;
 
   //Post-render scripts
@@ -145,13 +162,9 @@ function renderPage(pageName) {
 
 function navigate(event) {
   event.preventDefault();
-  const pageName = event.currentTarget.getAttribute("data-page");
+  const pageName = event.currentTarget.getAttribute("data-page") ?? "404";
   if (pageName === currentPage) return;
 
   history.pushState(null, "", `#${pageName}`);
-  renderPage(pageName);
-
-  const oldActiveLink = document.querySelector(".header-nav__link_active");
-  oldActiveLink.classList.remove("header-nav__link_active");
-  event.currentTarget.classList.add("header-nav__link_active");
+  renderPage(pageName, event.currentTarget);
 }
