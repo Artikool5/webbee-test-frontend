@@ -5,7 +5,7 @@ const ProfilePage = `<div class="grid">
                     <div class="comments">
                         <div class="comment">
                             <div class="comment__header">
-                                <div class="icon-wrapper"><img src="assets/icons/quote-icon.svg"></div>
+                                <div class="icon-wrapper"><img src="assets/icons/quote-icon.svg" alt=""></div>
                                 <p><a class="comment__author" href="#">James Anderson</a> commented:</p>
                             </div>
                             <div class="comment__body">
@@ -24,12 +24,12 @@ const ProfilePage = `<div class="grid">
                         <ul class="post__stats">
                             <li class="post__stat">
                                 <div class="icon-wrapper"><img class="post__stat-logo"
-                                        src="assets/icons/views-icon.svg"></div>
+                                        src="assets/icons/views-icon.svg" alt="views"></div>
                                 <span class="post__stat-data" aria-label="views">432</span>
                             </li>
                             <li class="post__stat">
                                 <div class="icon-wrapper"><img class="post__stat-logo"
-                                        src="assets/icons/quote-icon.svg"></div>
+                                        src="assets/icons/quote-icon.svg" alt="comments"></div>
                                 <span class="post__stat-data" aria-label="comments">47</span>
                             </li>
                         </ul>
@@ -42,11 +42,11 @@ const ProfilePage = `<div class="grid">
                         </div>
                         <div class="right-container">
                             <div class="header__stats">
-                                <div class="icon-wrapper"><img src="assets/icons/time-icon.svg"></div>
+                                <div class="icon-wrapper"><img src="assets/icons/time-icon.svg" alt="posted"></div>
                                 <time datetime="PT53M">53 minutes ago</time>
                             </div>
                             <div class="icon-wrapper">
-                                <img class="menu-arrow-icon" src="assets/icons/menu-arrow-icon.svg">
+                                <img class="menu-arrow-icon" src="assets/icons/menu-arrow-icon.svg" alt="">
                             </div>
                         </div>
                     </header>
@@ -58,11 +58,11 @@ const ProfilePage = `<div class="grid">
                         </div>
                         <div class="right-container">
                             <div class="header__stats">
-                                <div class="icon-wrapper"><img src="assets/icons/time-icon.svg"></div>
+                                <div class="icon-wrapper"><img src="assets/icons/time-icon.svg" alt="posted"></div>
                                 <time datetime="PT56M">56 minutes ago</time>
                             </div>
                             <div class="icon-wrapper">
-                                <img class="menu-arrow-icon" src="assets/icons/menu-arrow-icon.svg">
+                                <img class="menu-arrow-icon" src="assets/icons/menu-arrow-icon.svg" alt="">
                             </div>
                         </div>
                     </header>
@@ -79,16 +79,16 @@ const ProfilePage = `<div class="grid">
                         <p class="sidebar-card__user-profession">UX/UI designer</p>
                     </div>
                     <ul class="user-social-media">
-                        <li><a href="https://www.telegram.org"><img src="assets/icons/telegram.svg"></a></li>
-                        <li><a href="https://www.hh.ru"><img src="assets/icons/hh.svg"></a></li>
-                        <li><a href="https://www.twitter.com"><img src="assets/icons/twitter.svg"></a></li>
+                        <li><a href="https://www.telegram.org"><img src="assets/icons/telegram.svg" alt="Hanna's telegram"></a></li>
+                        <li><a href="https://www.hh.ru"><img src="assets/icons/hh.svg" alt="Hanna's headhunters"></a></li>
+                        <li><a href="https://www.twitter.com"><img src="assets/icons/twitter.svg" alt="Hanna's twitter"></a></li>
                     </ul>
                 </div>
                 <div class="sidebar-card open">
                     <div class="sidebar-card__header">
                         <h3 class="sidebar-card__title">Navigation</h3>
                         <div class="icon-wrapper icon-wrapper_sm">
-                            <img class="menu-arrow-icon" src="assets/icons/menu-arrow-icon.svg">
+                            <img class="menu-arrow-icon" src="assets/icons/menu-arrow-icon.svg" alt="">
                         </div>
                     </div>
                     <div class="sidebar-card__content">
@@ -97,7 +97,7 @@ const ProfilePage = `<div class="grid">
                                 <li class="sidebar-card__item">
                                     <a href="#" class="sidebar-card__link">
                                         <div class="sidebar-card__link-text">
-                                            <div class="icon-wrapper"><img src="assets/icons/person-icon.svg"></div>
+                                            <div class="icon-wrapper"><img src="assets/icons/person-icon.svg" alt=""></div>
                                             <span class="sidebar-card__link-title">My profile</span>
                                         </div>
                                         <div class="badge"></div>
@@ -106,7 +106,7 @@ const ProfilePage = `<div class="grid">
                                 <li class="sidebar-card__item">
                                     <a href="#" class="sidebar-card__link">
                                         <div class="sidebar-card__link-text">
-                                            <div class="icon-wrapper"><img src="assets/icons/balance-icon.svg"></div>
+                                            <div class="icon-wrapper"><img src="assets/icons/balance-icon.svg" alt=""></div>
                                             <span class="sidebar-card__link-title">Balance</span>
                                         </div>
                                         <div class="badge badge_text">$ 1,430</div>
@@ -115,7 +115,7 @@ const ProfilePage = `<div class="grid">
                                 <li class="sidebar-card__item">
                                     <a href="#" class="sidebar-card__link">
                                         <div class="sidebar-card__link-text">
-                                            <div class="icon-wrapper"><img src="assets/icons/connections-icon.svg">
+                                            <div class="icon-wrapper"><img src="assets/icons/connections-icon.svg" alt="">
                                             </div>
                                             <span class="sidebar-card__link-title">Connections</span>
                                         </div>
@@ -125,7 +125,7 @@ const ProfilePage = `<div class="grid">
                                 <li class="sidebar-card__item">
                                     <a href="#" class="sidebar-card__link">
                                         <div class="sidebar-card__link-text">
-                                            <div class="icon-wrapper"><img src="assets/icons/people-icon.svg"></div>
+                                            <div class="icon-wrapper"><img src="assets/icons/people-icon.svg" alt=""></div>
                                             <span class="sidebar-card__link-title">Friends</span>
                                         </div>
                                         <div class="badge"></div>
@@ -135,7 +135,7 @@ const ProfilePage = `<div class="grid">
                                 <li class="sidebar-card__item">
                                     <a href="#" class="sidebar-card__link">
                                         <div class="sidebar-card__link-text">
-                                            <div class="icon-wrapper"><img src="assets/icons/events-icon.svg"></div>
+                                            <div class="icon-wrapper"><img src="assets/icons/events-icon.svg" alt=""></div>
                                             <span class="sidebar-card__link-title">Events</span>
                                         </div>
                                         <div class="badge badge_green">45</div>
@@ -144,7 +144,7 @@ const ProfilePage = `<div class="grid">
                                 <li class="sidebar-card__item">
                                     <a href="#" class="sidebar-card__link">
                                         <div class="sidebar-card__link-text">
-                                            <div class="icon-wrapper"><img src="assets/icons/settings-icon.svg"></div>
+                                            <div class="icon-wrapper"><img src="assets/icons/settings-icon.svg" alt=""></div>
                                             <span class="sidebar-card__link-title">Account settings</span>
                                         </div>
                                         <div class="badge"></div>
@@ -158,7 +158,7 @@ const ProfilePage = `<div class="grid">
                     <div class="sidebar-card__header">
                         <h3 class="sidebar-card__title">Share your thoughts</h3>
                         <div class="icon-wrapper icon-wrapper_sm">
-                            <img class="menu-arrow-icon" src="assets/icons/menu-arrow-icon.svg">
+                            <img class="menu-arrow-icon" src="assets/icons/menu-arrow-icon.svg" alt="">
                         </div>
                     </div>
                     <div class="sidebar-card__content">
