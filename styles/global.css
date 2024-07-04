@@ -124,6 +124,7 @@ h1 {
 .header-nav__item.settings {
     display: flex;
     justify-content: center;
+    align-items: center;
 
     gap: 8px;
 
