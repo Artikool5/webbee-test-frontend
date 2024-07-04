@@ -62,13 +62,17 @@ h1 {
 }
 
 .page-header__top {
+    background-color: var(--white);
+}
+
+.header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
+    max-width: 1440px;
     padding-inline: 32px;
-
-    background-color: var(--white);
+    margin-inline: auto;
 }
 
 .breadcrumbs {
