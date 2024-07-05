@@ -1,16 +1,32 @@
 .main-wrap {
     padding-block: 32px;
     padding-inline: 32px;
+
+    @media (max-width: 425px) {
+        padding-block: 8px;
+        padding-inline: 8px;
+    }
 }
 
 .main-content {
     display: flex;
     flex-direction: column;
 
-    min-height: calc(100vh - 32px*2 - 104px);
+    --header-height: 104px;
+    --padding-size: 32px;
+    min-height: calc(100vh - var(--padding-size)*2 - var(--header-height));
     height: fit-content;
 
     background-color: var(--white);
+
+    @media (max-width: 768px) {
+        --header-height: 64px
+    }
+
+    @media (max-width: 425px) {
+        --header-height: 40px;
+        --padding-size: 8px;
+    }
 }
 
 .main-content__header {
@@ -20,6 +36,11 @@
 
     padding-block: 16px;
     padding-inline: 32px;
+
+    @media (max-width: 425px) {
+        padding-block: 8px;
+        padding-inline: 16px;
+    }
 }
 
 .main-content__title {
