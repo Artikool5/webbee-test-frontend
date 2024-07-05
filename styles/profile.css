@@ -173,6 +173,7 @@
 
 .profile-sidebar {
     display: grid;
+    grid-auto-rows: max-content;
     gap: 32px;
 }
 

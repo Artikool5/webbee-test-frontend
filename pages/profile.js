@@ -162,10 +162,12 @@ const ProfilePage = `<div class="grid">
                         </div>
                     </div>
                     <div class="sidebar-card__content">
-                        <div class="sidebar-card__content-container">
-                            <textarea class="sidebar-card__textarea" placeholder="Enter your message..."
-                                rows="4"></textarea>
-                            <button class="sidebar-card__button">Save</button>
+                        <div>
+                            <div class="sidebar-card__content-container">
+                                <textarea class="sidebar-card__textarea" placeholder="Enter your message..."
+                                    rows="4"></textarea>
+                                <button class="sidebar-card__button">Save</button>
+                            </div>
                         </div>
                     </div>
                 </div>
