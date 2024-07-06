@@ -230,6 +230,7 @@ function renderPage(realPageName) {
     if (currentPage === "timer") timerPageScript();
   }
 
+  history.replaceState({ pageName }, "", pageName);
   appElement.innerHTML = pages[pageName];
   setCurrentPageActiveLink(realPageName);
   currentPage = pageName;
