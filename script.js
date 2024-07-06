@@ -68,8 +68,6 @@ window.addEventListener("popstate", (event) => {
   renderPage(pageName);
 });
 
-renderPage("profile");
-
 // Timer logic
 
 let isTimerVisible = false;
@@ -227,6 +225,7 @@ function renderPage(realPageName) {
     if (currentPage === "timer") timerPageScript();
   }
 
+  history.replaceState({ pageName }, "", pageName);
   appElement.innerHTML = pages[pageName];
   setCurrentPageActiveLink(realPageName);
   currentPage = pageName;
@@ -251,8 +250,9 @@ function navigate(event) {
   event.preventDefault();
 
   const pageName = event.currentTarget.getAttribute("href");
-  if (pageName === currentPage) return;
-
-  history.pushState({ pageName }, "", pageName);
   renderPage(pageName);
 }
+
+const path = window.location.pathname;
+const pageName = path.split("/").at(-1) || "profile";
+renderPage(pageName);

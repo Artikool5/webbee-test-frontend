@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/profile.css" />
+    <link rel="stylesheet" href="styles/map.css" />
+    <link rel="stylesheet" href="styles/timer.css" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script async src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script defer type="module" src="./pages/profile.js"></script>
+    <script defer type="module" src="./pages/map.js"></script>
+    <script defer type="module" src="./pages/timer.js"></script>
+    <script defer type="module" src="script.js"></script>
+    <title>Webbee Test Page</title>
+</head>
+
+<body>
+    <header class="page-header">
+        <div class="page-header__top">
+            <div class="header-container">
+                <div class="left-container">
+                    <div class="breadcrumbs">
+                        <div class="icon-wrapper icon-wrapper_sm"><img src="assets/icons/back-icon.svg" alt="" /></div>
+                        <h1>
+                            <span class="breadcrumbs__root">User pages</span>
+                            <span class="breadcrumbs__separator">-</span>
+                            Profile
+                        </h1>
+                    </div>
+                </div>
+                <div class="right-container">
+                    <ul class="extra-nav">
+                        <li class="extra-nav__item">
+                            <a href="#" class="extra-nav__link">
+                                <div class="icon-wrapper"><img class="extra-nav__link-icon"
+                                        src="assets/icons/statistics-icon.svg" alt="" /></div>
+                                <p class="extra-nav__link-text">Statistics</p>
+                            </a>
+                        </li>
+                        <li class="extra-nav__item">
+                            <a href="#" class="extra-nav__link">
+                                <div class="icon-wrapper"><img class="extra-nav__link-icon"
+                                        src="assets/icons/invoices-icon.svg" alt="" /></div>
+                                <p class="extra-nav__link-text">Invoices</p>
+                            </a>
+                        </li>
+                        <li class="extra-nav__item">
+                            <a href="#" class="extra-nav__link">
+                                <div class="icon-wrapper"><img class="extra-nav__link-icon"
+                                        src="assets/icons/schedule-icon.svg" alt="" /></div>
+                                <p class="extra-nav__link-text">Schedule</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page-header__bottom">
+            <div class="page-container">
+                <nav class="header-nav">
+                    <div class="left-container">
+                        <ul class="header-nav__list">
+                            <li class="header-nav__item">
+                                <a class="header-nav__link" href="profile">
+                                    <div class="icon-wrapper icon-wrapper_sm"><img class="header-nav__icon"
+                                            src="assets/icons/burger-menu-icon.svg" alt=""></div>
+                                    <span class="header-nav__label">Activity</span>
+                                </a>
+                            </li>
+                            <li class="header-nav__item">
+                                <a class="header-nav__link" href="map">
+                                    <div class="icon-wrapper icon-wrapper_sm"><img class="header-nav__icon"
+                                            src="assets/icons/location-icon.svg" alt=""></div>
+                                    <span class="header-nav__label">Map</span>
+                                </a>
+                            </li>
+                            <li class="header-nav__item">
+                                <a class="header-nav__link" href="timer">
+                                    <div class="icon-wrapper icon-wrapper_sm"><img class="header-nav__icon"
+                                            src="assets/icons/time-icon.svg" alt=""></div>
+                                    <span class="header-nav__label">Timer</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="right-container">
+                        <ul class="header-nav__list">
+                            <li class="header-nav__item">
+                                <a href="notes" class="header-nav__link">
+                                    <div class="icon-wrapper icon-wrapper_sm">
+                                        <img src="assets/icons/notes-icon.svg" alt="" class="header-nav__icon">
+                                    </div>
+                                    <span class="header-nav__label">Notes</span>
+                                </a>
+                            </li>
+                            <li class="header-nav__item">
+                                <a href="friends" class="header-nav__link">
+                                    <div class="icon-wrapper icon-wrapper_sm">
+                                        <img src="assets/icons/people-icon.svg" alt="" class="header-nav__icon">
+                                    </div>
+                                    <span class="header-nav__label">Friends</span>
+                                </a>
+                            </li>
+                            <li class="header-nav__item">
+                                <a href="photos" class="header-nav__link">
+                                    <div class="icon-wrapper icon-wrapper_sm">
+                                        <img src="assets/icons/photos-icon.svg" alt="" class="header-nav__icon">
+                                    </div>
+                                    <span class="header-nav__label">Photos</span>
+                                </a>
+                            </li>
+                            <li class="header-nav__item settings">
+                                <div class="icon-wrapper icon-wrapper_sm"><img class="header-nav__icon"
+                                        src="assets/icons/settings-icon.svg" alt="settings"></div>
+                                <div class="icon-wrapper icon-wrapper_sm"><img class="header-nav__menu-arrow"
+                                        src="assets/icons/menu-arrow-icon.svg" alt=""></div>
+                            </li>
+                            <li class="header-nav__item">
+                                <button class="mobile-menu-close settings">Close</button>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="mobile-menu__backdrop"></div>
+        <button class="mobile-menu-btn">
+            <div class="icon-wrapper">
+                <img src="assets/icons/burger-menu-icon.svg" alt="">
+            </div>
+        </button>
+    </header>
+
+    <div class="page-container">
+        <div id="app"></div>
+    </div>
+</body>
+
+</html>
