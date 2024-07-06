@@ -124,35 +124,73 @@ function profilePageScript(needCleanup) {
   });
 }
 
-function mapPageScript() {
+let map;
+const mapState = {
+  markers: [],
+};
 
-  if (!isMapVisited) {
-    function initMap(lat, lon) {
-      const map = L.map("map").setView([lat, lon], 13);
+function mapPageScript(needCleanup) {
+  function initMap(loadState, lat, lon) {
+    if (loadState) {
+      map = L.map("map").setView(mapState.center, mapState.zoom);
 
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19,
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      }).addTo(map);
-
+      mapState.markers.forEach((markerState) => {
+        let marker = L.marker(markerState.latlng).addTo(map);
+        if (markerState.popupContent) {
+          marker.bindPopup(markerState.popupContent);
+        }
+      });
+    } else {
+      map = L.map("map").setView([lat, lon], 13);
       L.marker([lat, lon]).addTo(map).bindPopup("You are here").openPopup();
-
-      const loadingImg = document.getElementById("loading");
-      loadingImg.remove();
     }
 
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map);
+
+    const loadingImg = document.getElementById("loading");
+    loadingImg?.remove();
+  }
+
+  if (needCleanup) {
+    mapState.center = map.getCenter();
+    mapState.zoom = map.getZoom();
+
+    map.eachLayer((layer) => {
+      if (layer instanceof L.Marker) {
+        let markerState = {
+          latlng: layer.getLatLng(),
+          popupContent: null,
+        };
+
+        if (layer.getPopup()) {
+          markerState.popupContent = layer.getPopup().getContent();
+        }
+
+        mapState.markers.push(markerState);
+      }
+    });
+
+    map.remove();
+  } else if (isMapVisited) {
+    initMap(true);
+  }
+
+  if (!isMapVisited) {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const lat = position.coords.latitude;
           const lon = position.coords.longitude;
-          initMap(lat, lon);
+          initMap(false, lat, lon);
         },
         (error) => {
           alert("Geolocation failed. Default location will be used.");
           // London
-          initMap(51.505, -0.09);
+          initMap(false, 51.505, -0.09);
         }
       );
     } else {
@@ -160,11 +198,11 @@ function mapPageScript() {
         "Geolocation is not supported by this browser. Default location will be used."
       );
       // London
-      initMap(51.505, -0.09);
+      initMap(false, 51.505, -0.09);
     }
-  }
 
-  if (!isMapVisited) isMapVisited = true;
+    isMapVisited = true;
+  }
 }
 
 function timerPageScript() {
@@ -181,9 +219,10 @@ function renderPage(pageName, pageLink) {
 
   //Pre-render "hook"
   if (currentPage) {
-    pages[currentPage] = appElement.innerHTML;
+    if (currentPage !== "map") pages[currentPage] = appElement.innerHTML;
 
     if (currentPage === "profile") profilePageScript(true);
+    if (currentPage === "map") mapPageScript(true);
     if (currentPage === "timer") timerPageScript();
   }
 
@@ -197,7 +236,7 @@ function renderPage(pageName, pageLink) {
       profilePageScript(false);
       break;
     case "map":
-      mapPageScript();
+      mapPageScript(false);
       break;
     case "timer":
       timerPageScript();
