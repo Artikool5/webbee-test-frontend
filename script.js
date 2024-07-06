@@ -68,7 +68,10 @@ window.addEventListener("popstate", (event) => {
   renderPage(pageName);
 });
 
-renderPage("profile");
+const path = window.location.pathname;
+const pageName = path.substring(1) || "profile";
+history.replaceState({ pageName }, "", path);
+renderPage(pageName);
 
 // Timer logic
 
