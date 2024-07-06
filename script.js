@@ -250,9 +250,6 @@ function navigate(event) {
   event.preventDefault();
 
   const pageName = event.currentTarget.getAttribute("href");
-  if (pageName === currentPage) return;
-
-  history.pushState({ pageName }, "", pageName);
   renderPage(pageName);
 }
 
