@@ -69,7 +69,7 @@ window.addEventListener("popstate", (event) => {
 });
 
 const path = window.location.pathname;
-const pageName = path.substring(1) || "profile";
+const pageName = path.split("/").at(-1) || "profile";
 history.replaceState({ pageName }, "", pageName);
 renderPage(pageName);
 
