@@ -44,7 +44,7 @@ function setCurrentPageActiveLink(pageName, pageLink) {
     navLinks.forEach((link) => {
       link.addEventListener("click", navigate);
 
-      const page = link.getAttribute("href").slice(1);
+      const page = link.getAttribute("href");
       if (page === pageName) {
         link.classList.add("header-nav__link_active");
       }
@@ -249,10 +249,9 @@ function renderPage(pageName, pageLink) {
 function navigate(event) {
   event.preventDefault();
 
-  const url = event.currentTarget.getAttribute("href");
-  const pageName = url.slice(1);
+  const pageName = event.currentTarget.getAttribute("href");
   if (pageName === currentPage) return;
 
-  history.pushState({ pageName }, "", url);
+  history.pushState({ pageName }, "", pageName);
   renderPage(pageName, event.currentTarget);
 }
