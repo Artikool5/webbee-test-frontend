@@ -38,7 +38,7 @@ const pages = {
 let currentPage = null;
 let isMapVisited = false;
 
-function setCurrentPageActiveLink(pageName, pageLink) {
+function setCurrentPageActiveLink(pageName) {
   if (!currentPage) {
     const navLinks = document.querySelectorAll(".header-nav__link");
     navLinks.forEach((link) => {
@@ -54,6 +54,11 @@ function setCurrentPageActiveLink(pageName, pageLink) {
   if (currentPage) {
     const oldActiveLink = document.querySelector(".header-nav__link_active");
     oldActiveLink.classList.remove("header-nav__link_active");
+
+    let pageLink;
+    document.querySelectorAll(".header-nav__link").forEach((link) => {
+      if (link.getAttribute("href") === pageName) pageLink = link;
+    });
     pageLink.classList.add("header-nav__link_active");
   }
 }
@@ -204,9 +209,12 @@ function timerPageScript() {
 
 // Render logic
 
-function renderPage(pageName, pageLink) {
-  if (pageName === currentPage) return;
-  if (!Object.keys(pages).includes(pageName)) pageName = "404";
+function renderPage(realPageName) {
+  if (realPageName === currentPage) return;
+  let filteredPageName;
+  if (!Object.keys(pages).includes(realPageName)) filteredPageName = "404";
+
+  const pageName = filteredPageName ?? realPageName;
 
   const appElement = document.getElementById("app");
 
@@ -220,7 +228,7 @@ function renderPage(pageName, pageLink) {
   }
 
   appElement.innerHTML = pages[pageName];
-  setCurrentPageActiveLink(pageName, pageLink);
+  setCurrentPageActiveLink(realPageName);
   currentPage = pageName;
 
   //Post-render scripts
@@ -246,5 +254,5 @@ function navigate(event) {
   if (pageName === currentPage) return;
 
   history.pushState({ pageName }, "", pageName);
-  renderPage(pageName, event.currentTarget);
+  renderPage(pageName);
 }
