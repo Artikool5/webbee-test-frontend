@@ -68,11 +68,6 @@ window.addEventListener("popstate", (event) => {
   renderPage(pageName);
 });
 
-const path = window.location.pathname;
-const pageName = path.split("/").at(-1) || "profile";
-history.replaceState({ pageName }, "", pageName);
-renderPage(pageName);
-
 // Timer logic
 
 let isTimerVisible = false;
@@ -260,3 +255,7 @@ function navigate(event) {
   history.pushState({ pageName }, "", pageName);
   renderPage(pageName);
 }
+
+const path = window.location.pathname;
+const pageName = path.split("/").at(-1) || "profile";
+renderPage(pageName);
