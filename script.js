@@ -44,8 +44,8 @@ function setCurrentPageActiveLink(pageName, pageLink) {
     navLinks.forEach((link) => {
       link.addEventListener("click", navigate);
 
-      const dataPage = link.getAttribute("data-page");
-      if (dataPage === pageName) {
+      const page = link.getAttribute("href").slice(1);
+      if (page === pageName) {
         link.classList.add("header-nav__link_active");
       }
     });
@@ -58,10 +58,15 @@ function setCurrentPageActiveLink(pageName, pageLink) {
   }
 }
 
-window.addEventListener("popstate", () => {
-  const pageName = window.location.hash.slice(1) || "profile";
+window.addEventListener("popstate", (event) => {
+  const pageName = event.state?.pageName ?? "profile";
   renderPage(pageName);
 });
+
+const path = window.location.pathname;
+const pageName = path.substring(1) || "profile";
+history.replaceState({ pageName }, "", path);
+renderPage(pageName);
 
 // Timer logic
 
@@ -120,6 +125,7 @@ function profilePageScript(needCleanup) {
 }
 
 function mapPageScript() {
+
   if (!isMapVisited) {
     function initMap(lat, lon) {
       const map = L.map("map").setView([lat, lon], 13);
@@ -165,32 +171,17 @@ function timerPageScript() {
   isTimerVisible = !isTimerVisible;
 }
 
-// В рамках тестового задания отключаем поведение ненужных для навигации ссылок
-function removeLinkDefault(needCleanup) {
-  const links = document.querySelectorAll("a:not(.header-nav__link)");
-
-  if (needCleanup) {
-    links.forEach((link) => {
-      link.removeEventListener("click", (e) => e.preventDefault());
-    });
-  } else {
-    links.forEach((link) => {
-      link.addEventListener("click", (e) => e.preventDefault());
-    });
-  }
-}
-
 // Render logic
 
 function renderPage(pageName, pageLink) {
   if (pageName === currentPage) return;
+  if (!Object.keys(pages).includes(pageName)) pageName = "404";
 
   const appElement = document.getElementById("app");
 
   //Pre-render "hook"
   if (currentPage) {
     pages[currentPage] = appElement.innerHTML;
-    removeLinkDefault(true);
 
     if (currentPage === "profile") profilePageScript(true);
     if (currentPage === "timer") timerPageScript();
@@ -214,18 +205,15 @@ function renderPage(pageName, pageLink) {
     default:
       break;
   }
-
-  removeLinkDefault(false);
 }
 
 function navigate(event) {
   event.preventDefault();
-  const pageName = event.currentTarget.getAttribute("data-page") ?? "404";
+
+  const url = event.currentTarget.getAttribute("href");
+  const pageName = url.slice(1);
   if (pageName === currentPage) return;
 
-  history.pushState(null, "", `#${pageName}`);
+  history.pushState({ pageName }, "", url);
   renderPage(pageName, event.currentTarget);
 }
-
-const initialPage = window.location.hash.slice(1) || "profile";
-renderPage(initialPage);
