@@ -74,18 +74,14 @@ let isTimerVisible = false;
 let seconds = 0;
 let minutes = 0;
 let hours = 0;
+const siteUsageStartTime = Date.now();
 setInterval(updateTimer, 1000);
 
 function updateTimer() {
-  seconds++;
-  if (seconds >= 60) {
-    seconds = 0;
-    minutes++;
-    if (minutes >= 60) {
-      minutes = 0;
-      hours++;
-    }
-  }
+  const currentTime = Date.now();
+  seconds = Math.floor((currentTime - siteUsageStartTime) / 1000) % 60;
+  minutes = Math.floor((currentTime - siteUsageStartTime) / (1000 * 60)) % 60;
+  hours = Math.round((currentTime - siteUsageStartTime) / (1000 * 60 * 60));
 
   if (isTimerVisible) updateDisplay();
 }
