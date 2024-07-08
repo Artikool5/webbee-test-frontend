@@ -45,7 +45,8 @@ function setCurrentPageActiveLink(pageName) {
       link.addEventListener("click", navigate);
 
       const page = link.getAttribute("href");
-      if (page === pageName) {
+      const isNavLink = !link.classList.contains("page-title__link");
+      if (page === pageName && isNavLink) {
         link.classList.add("header-nav__link_active");
       }
     });
@@ -56,9 +57,11 @@ function setCurrentPageActiveLink(pageName) {
     oldActiveLink.classList.remove("header-nav__link_active");
 
     let pageLink;
-    document.querySelectorAll(".header-nav__link").forEach((link) => {
-      if (link.getAttribute("href") === pageName) pageLink = link;
-    });
+    document
+      .querySelectorAll(".header-nav__link:not(.page-title__link)")
+      .forEach((link) => {
+        if (link.getAttribute("href") === pageName) pageLink = link;
+      });
     pageLink.classList.add("header-nav__link_active");
   }
 }
