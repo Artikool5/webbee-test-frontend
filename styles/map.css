@@ -1,0 +1,86 @@
+.main-wrap {
+    padding-block: 32px;
+    padding-inline: 32px;
+
+    @media (max-width: 425px) {
+        padding-block: 8px;
+        padding-inline: 8px;
+    }
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+
+    --header-height: 104px;
+    --padding-size: 32px;
+    min-height: calc(100vh - var(--padding-size)*2 - var(--header-height));
+    height: fit-content;
+
+    background-color: var(--white);
+
+    @media (max-width: 768px) {
+        --header-height: 64px
+    }
+
+    @media (max-width: 425px) {
+        --header-height: 40px;
+        --padding-size: 8px;
+    }
+}
+
+.main-content__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-block: 16px;
+    padding-inline: 32px;
+
+    @media (max-width: 425px) {
+        padding-block: 8px;
+        padding-inline: 16px;
+    }
+}
+
+.main-content__title {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.main-content__controlls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .icon-wrapper {
+        cursor: pointer;
+        transition: background-color 300ms ease-in-out;
+
+        &:hover {
+            background-color: var(--gray);
+        }
+    }
+}
+
+#map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+#loading {
+    display: block;
+    animation: spin 2s ease-in-out 250ms infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
