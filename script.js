@@ -1,13 +1,6 @@
-// import MapPage from "./pages/map.js";
-// import ProfilePage from "./pages/profile.js";
-// import TimerPage from "./pages/timer.js";
-
 // Initialization
 
 const pages = {
-  // profile: ProfilePage,
-  // map: MapPage,
-  // timer: TimerPage,
   404: "<h1>404 Not Found</h1>",
 };
 
