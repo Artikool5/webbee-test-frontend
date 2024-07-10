@@ -1,13 +1,13 @@
-import MapPage from "./pages/map.js";
-import ProfilePage from "./pages/profile.js";
-import TimerPage from "./pages/timer.js";
+// import MapPage from "./pages/map.js";
+// import ProfilePage from "./pages/profile.js";
+// import TimerPage from "./pages/timer.js";
 
 // Initialization
 
 const pages = {
-  profile: ProfilePage,
-  map: MapPage,
-  timer: TimerPage,
+  // profile: ProfilePage,
+  // map: MapPage,
+  // timer: TimerPage,
   404: "<h1>404 Not Found</h1>",
 };
 
@@ -234,4 +234,33 @@ function navigate(event) {
 
 const path = window.location.pathname;
 const pageName = path.split("/").at(-1) || "profile";
-renderPage(pageName);
+
+(async () => {
+  const profilePromise = fetch("pages/profile.html");
+  const mapPromise = fetch("pages/map.html");
+  const timerPromise = fetch("pages/timer.html");
+  const results = await Promise.allSettled([
+    profilePromise,
+    mapPromise,
+    timerPromise,
+  ]);
+
+  const pageNames = ["profile", "map", "timer"];
+
+  await Promise.allSettled(
+    results.map(async (res, index) => {
+      if (res.status === "fulfilled") {
+        try {
+          const html = await res.value.text();
+          pages[pageNames[index]] = html;
+        } catch (error) {
+          console.error(`Ошибка при обработке ${pageNames[index]}:`, error);
+        }
+      } else {
+        console.error(`Ошибка загрузки ${pageNames[index]}:`, res.reason);
+      }
+    })
+  );
+
+  renderPage(pageName);
+})();
